@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZeusKatana • Home</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+        color: white;
+        overflow-x: hidden;
+    }
+
+    /* Loading */
+    #loading {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 10;
+    }
+
+    .spinner {
+        width: 55px;
+        height: 55px;
+        border: 6px solid #333;
+        border-top: 6px solid #00d9ff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 15px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Header */
+    .top {
+        width: 100%;
+        background: #111;
+        padding: 15px;
+        box-shadow: 0 0 10px #00d9ff55;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-size: 22px;
+        font-weight: bold;
+        color: #00d9ff;
+        text-shadow: 0 0 10px #00d9ff;
+    }
+
+    .perfil {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: url('https://i.imgur.com/1X2lYkS.png');
+        background-size: cover;
+        border: 2px solid #00d9ff;
+        box-shadow: 0 0 10px #00d9ff;
+    }
+
+    /* Botões */
+    .container {
+        padding: 20px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 15px;
+        background: #111;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 18px;
+        margin-top: 12px;
+        box-shadow: 0 0 10px #00d9ff55;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        box-shadow: 0 0 18px #00d9ff;
+        transform: scale(1.02);
+    }
+</style>
+</head>
+
+<body>
+
+<!-- TELA DE LOADING -->
+<div id="loading">
+    <div class="spinner"></div>
+    <p>Carregando interface ⚡</p>
+</div>
+
+<!-- CONTEÚDO -->
+<div id="content" style="display:none;">
+
+    <div class="top">
+        <div class="logo">ZeusKatana</div>
+        <div class="perfil"></div>
+    </div>
+
+    <div class="container">
+        <button class="btn">Chat IA</button>
+        <button class="btn">Ajuda Expressa</button>
+        <button class="btn">Calculadora Inteligente</button>
+        <button class="btn">Dicas de Estudos</button>
+        <button class="btn">Configurações</button>
+    </div>
+
+</div>
+
+<script>
+    setTimeout(() => {
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("content").style.display = "block";
+    }, 1700);
+</script>
+
+</body>
+</html>
