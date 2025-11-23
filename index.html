@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZeusKatana • Login</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+        color: white;
+    }
+
+    /* TELA DE LOADING */
+    #loading {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 10;
+    }
+
+    .spinner {
+        width: 55px;
+        height: 55px;
+        border: 6px solid #333;
+        border-top: 6px solid #00d9ff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 15px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* CARD DE LOGIN */
+    .login-box {
+        width: 85%;
+        max-width: 350px;
+        background: #111;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px #00d9ff55;
+        animation: fadeIn 0.9s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    .logo {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #00d9ff;
+        text-shadow: 0 0 10px #00d9ff;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        margin-top: 10px;
+        border-radius: 10px;
+        background: #222;
+        color: white;
+        font-size: 15px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 15px;
+        padding: 12px;
+        background: #00d9ff;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #000;
+        cursor: pointer;
+        box-shadow: 0 0 10px #00d9ff;
+        transition: 0.3s;
+    }
+
+    button:hover { box-shadow: 0 0 18px #00d9ff; }
+
+    .small-text {
+        margin-top: 12px;
+        font-size: 13px;
+        text-align: center;
+        color: #bbb;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- ========== TELA DE LOADING ========== -->
+<div id="loading">
+    <div class="spinner"></div>
+    <p>Está carregando, espere um momento ⚡</p>
+</div>
+
+<!-- ========== LOGIN ========== -->
+<div class="login-box" id="loginBox" style="display:none;">
+    <div class="logo">ZeusKatana</div>
+
+    <input type="text" id="usuario" placeholder="Usuário">
+    <input type="password" id="senha" placeholder="Senha">
+
+    <button onclick="login()">Entrar</button>
+
+    <p class="small-text">Bem-vindo ao sistema ⚡</p>
+</div>
+
+<script>
+    setTimeout(() => {
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("loginBox").style.display = "block";
+    }, 2000);
+
+    function login() {
+        let usuario = document.getElementById("usuario").value;
+        let senha = document.getElementById("senha").value;
+
+        if (usuario.trim() === "" || senha.trim() === "") {
+            alert("Preencha tudo!");
+            return;
+        }
+
+        document.body.innerHTML = `
+            <div id="loading">
+                <div class="spinner"></div>
+                <p>Carregando seu painel ⚡</p>
+            </div>
+        `;
+
+        setTimeout(() => {
+            window.location.href = "home.html";
+        }, 1700);
+    }
+</script>
+
+</body>
+</html>
